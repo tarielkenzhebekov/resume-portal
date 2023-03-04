@@ -1,7 +1,8 @@
-package com.example.resumeportal;
+package com.example.resumeportal.service;
 
-import com.example.resumeportal.models.MyUserDetails;
-import com.example.resumeportal.models.User;
+import com.example.resumeportal.model.MyUserDetails;
+import com.example.resumeportal.model.User;
+import com.example.resumeportal.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

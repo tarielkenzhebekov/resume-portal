@@ -1,6 +1,6 @@
-package com.example.resumeportal;
+package com.example.resumeportal.repository;
 
-import com.example.resumeportal.models.User;
+import com.example.resumeportal.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

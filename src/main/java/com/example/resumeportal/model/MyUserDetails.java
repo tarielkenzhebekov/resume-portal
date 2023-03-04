@@ -1,4 +1,4 @@
-package com.example.resumeportal.models;
+package com.example.resumeportal.model;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
