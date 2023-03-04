@@ -2,6 +2,9 @@ package com.example.resumeportal.model;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "USER_PROFILE")
 public class UserProfile {
@@ -34,6 +37,13 @@ public class UserProfile {
 
     @Column(name = "DESIGNATION")
     private String designation;
+
+    @OneToMany(
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    @JoinColumn(name = "USER_PROFILE_ID")
+    List<Job> jobs = new ArrayList<>();
 
     public int getId() {
         return id;
@@ -105,5 +115,13 @@ public class UserProfile {
 
     public void setDesignation(String designation) {
         this.designation = designation;
+    }
+
+    public List<Job> getJobs() {
+        return jobs;
+    }
+
+    public void setJobs(List<Job> jobs) {
+        this.jobs = jobs;
     }
 }
