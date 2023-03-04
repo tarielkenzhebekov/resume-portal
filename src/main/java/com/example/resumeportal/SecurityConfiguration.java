@@ -28,7 +28,7 @@ public class SecurityConfiguration {
         http.csrf().disable()
                 .authorizeHttpRequests((requests) -> requests
                         .requestMatchers("/edit").authenticated()
-                        .requestMatchers("/*").permitAll()
+                        .anyRequest().permitAll()
                 )
                 .formLogin();
         return http.build();
