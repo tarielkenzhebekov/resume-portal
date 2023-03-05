@@ -37,6 +37,7 @@ public class HomeController {
         job2.setDesignation("iOS Developer");
         job2.setStartDate(LocalDate.of(2020, 10, 10));
         job2.setEndDate(LocalDate.of(2020, 11, 20));
+        job2.setCurrentJob(true);
 
         profile.getJobs().clear();
         profile.getJobs().add(job1);
