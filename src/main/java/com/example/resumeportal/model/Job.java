@@ -1,6 +1,7 @@
 package com.example.resumeportal.model;
 
 import jakarta.persistence.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -22,9 +23,11 @@ public class Job {
     private String designation;
 
     @Column(name = "START_DATE")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate startDate;
 
     @Column(name = "END_DATE")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate endDate;
 
     @Column(name = "CURRENT_JOB")

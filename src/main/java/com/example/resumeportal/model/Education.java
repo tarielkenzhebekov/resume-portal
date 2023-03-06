@@ -1,6 +1,7 @@
 package com.example.resumeportal.model;
 
 import jakarta.persistence.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 
@@ -20,9 +21,11 @@ public class Education {
     private String qualification;
 
     @Column(name = "START_DATE")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate startDate;
 
     @Column(name = "END_DATE")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate endDate;
 
     @Column(name = "MAJOR")
