@@ -10,29 +10,37 @@
     <div class="container">
         <h1 th:text="${userProfile.userName} + '\'s Profile'"></h1>
         <form action="#" th:action="@{/edit}" th:object="${userProfile}" method="post">
+
             <div class="form-group">
-                <label for="firstName">First Name: </label>
+                <label for="theme"><strong>Select your profile theme:</strong></label>
+                <select id="theme" th:field="*{theme}">
+                    <option th:each="i : ${#numbers.sequence(1, 2)}" th:value="${i}" th:text="${'Theme ' + i}"
+                            th:selected="${i} eq *{theme}"></option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="firstName"><strong>First Name:</strong></label>
                 <input id="firstName" class="form-control" th:field="*{firstName}">
             </div>
             <div class="form-group">
-                <label for="lastName">Last Name: </label>
+                <label for="lastName"><strong>Last Name:</strong></label>
                 <input id="lastName" class="form-control" th:field="*{lastName}">
             </div>
             <div class="form-group">
-                <label for="designation">Designation: </label>
+                <label for="designation"><strong>Designation:</strong></label>
                 <input id="designation" class="form-control" th:field="*{designation}">
             </div>
             <div class="form-group">
-                <label for="email">Email: </label>
+                <label for="email"><strong>Email:</strong></label>
                 <input id="email" class="form-control" th:field="*{email}">
             </div>
             <div class="form-group">
-                <label for="phone">Phone Number: </label>
+                <label for="phone"><strong>Phone Number:</strong></label>
                 <input id="phone" class="form-control" th:field="*{phone}">
             </div>
             <div class="form-group">
-                <label for="summary">Summary: </label>
-                <input id="summary" class="form-control" th:field="*{summary}">
+                <label for="summary"><strong>Summary:</strong></label>
+                <textarea id="summary" class="form-control" th:field="*{summary}"></textarea>
             </div>
 
             <h2>Experience</h2>
@@ -91,6 +99,10 @@
             <input type="submit" value="Submit">
         </form>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 </body>
 </html>

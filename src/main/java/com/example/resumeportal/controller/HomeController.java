@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -22,8 +23,8 @@ public class HomeController {
     private UserProfileRepository userProfileRepository;
 
     @GetMapping("/")
-    public String home() {
-        Optional<UserProfile> profileOptional = userProfileRepository.findByUserName("tariel");
+    public String home(Principal principal) {
+        Optional<UserProfile> profileOptional = userProfileRepository.findByUserName(principal.getName());
         profileOptional.orElseThrow(() -> new RuntimeException("Not found"));
 
         UserProfile profile = profileOptional.get();
@@ -87,19 +88,22 @@ public class HomeController {
     @GetMapping("/edit")
     public String edit(Principal principal, Model model) {
         String userName = principal.getName();
-
         Optional<UserProfile> userProfileOptional = userProfileRepository.findByUserName(userName);
         userProfileOptional.orElseThrow(() -> new RuntimeException("Not found: " + userName));
-
         UserProfile userProfile = userProfileOptional.get();
         model.addAttribute("userProfile", userProfile);
         return "profile-edit";
     }
 
     @PostMapping("/edit")
-    public String postEdit(Principal principal, Model model) {
+    public String postEdit(Principal principal, @ModelAttribute UserProfile userProfile) {
         String userName = principal.getName();
-        // Save the updated values in the form
+        Optional<UserProfile> userProfileOptional = userProfileRepository.findByUserName(userName);
+        userProfileOptional.orElseThrow(() -> new RuntimeException("Not found: " + userName));
+        UserProfile savedUserProfile = userProfileOptional.get();
+        userProfile.setId(savedUserProfile.getId());
+        userProfile.setUserName(userName);
+        userProfileRepository.save(userProfile);
         return "redirect:/view/" + userName;
     }
 
