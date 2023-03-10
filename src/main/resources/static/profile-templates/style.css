@@ -1,0 +1,15 @@
+.edit h1{
+    display: inline;
+    /*float: left;*/
+}
+
+.edit p{
+    float: right;
+    font-size: 19px;
+    padding-top: 10px;
+}
+
+input{
+    float: right;
+    margin-bottom: 30px;
+}

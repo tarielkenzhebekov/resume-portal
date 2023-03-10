@@ -72,4 +72,13 @@ a#pdf:hover { background: #222; }
 .mine { margin-bottom: 20px; }
 .yui-gf div.first{width:12.3%;}
 
+.edit h2{
+    display: inline;
+    float: left;
+}
+
+.edit a{
+    float: right;
+    font-size: 19px;
+}
 

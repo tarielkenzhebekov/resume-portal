@@ -24,7 +24,10 @@
                         <span th:text="${userProfile.firstName}"></span>
                         <span th:text="${userProfile.lastName}"></span>
                     </h1>
-                    <h2 th:text="${userProfile.designation}"></h2>
+                    <div class="edit">
+                        <h2 th:text="${userProfile.designation}"></h2>
+                        <a th:if="${currentUsersProfile}" href="/edit">Edit</a>
+                    </div>
                 </div>
 
                 <div class="yui-u">
