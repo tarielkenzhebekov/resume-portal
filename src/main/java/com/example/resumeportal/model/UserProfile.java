@@ -59,5 +59,4 @@ public class UserProfile {
     @Column(name = "SKILLS")
     @ElementCollection(targetClass = String.class)
     List<String> skills = new ArrayList<>();
-
 }
